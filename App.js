@@ -1,21 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image} from 'react-native';
+import { StyleSheet, View, ImageBackground } from 'react-native';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Body from './components/Body';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <View style={styles.profile}>
-          
-          <Text style={{color: '#fff'}}>Cleitin Perulebes</Text>
-        </View>
-      </View>
-      <View style={styles.content}>
-        <Image style={styles.profileImage} source={require('./assets/icon.png')} />
-      </View>
-      <View style={styles.footer}>
-        <Text style={{color: '#fff'}}>Rodapé</Text>
-      </View>
+      <ImageBackground resizeMode='cover' source={require('./assets/img/dragon2.jpg')} style={styles.bg}>
+        <Header />
+        <Body />
+        <Footer />
+      </ImageBackground>
+
       <StatusBar style="auto" />
     </View>
   );
@@ -24,42 +21,13 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    // backgroundColor: '#fff',
     alignItems: 'bottom',
     justifyContent: 'center',
   },
-  header: {
+  bg: {
     flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#0000ff',
-    color: '#fff',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
-  content: {
-    flex: 3,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  footer: {
-    flex: 1,
-    backgroundColor: '#0000ff',
-    color: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  profile: {
-    flexDirection: 'row',
-    columnGap: 10,
-    alignItems: 'center'
-  },
-  profileImage: {
-    width: 100,
-    height: 100,
-    borderTopLeftRadius: 50,
-  borderTopRightRadius: 50,
-  borderBottomLeftRadius: 50,
-  borderBottomRightRadius: 50
+    width: '100%',
+    justifyContent: 'center'
   }
 });

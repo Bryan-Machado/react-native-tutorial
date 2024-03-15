@@ -1,7 +1,7 @@
 import React from 'react'
 import {Text, StyleSheet} from 'react-native'
 
-const H1 = ({title = 'valor default', children}) => {
+const H1 = ({title = 'valor default', children = 'children default'}) => {
   return (
     <Text style={styles.h1}>{title} outro texto: {children}</Text>
   )

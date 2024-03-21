@@ -22,7 +22,8 @@ const styles = StyleSheet.create({
         marginVertical: 8
       },
       textButton: {
-        color: '#FFF'
+        color: '#FFF',
+        textAlign: 'center'
       }
 })
 

@@ -4,17 +4,17 @@ import H4 from './ui/H4.js'
 import { Image } from 'expo-image'
 import {Image as ImageReact} from 'react-native'
 
-const CardUser = ({nome, email, avatarUrl}) => {
+const CardUser = ({user}) => {
   return (
     <View style={styles.card}>
         <View style={styles.avatar}>
-            {/* <Image style={styles.avatarImg} 
-            source={avatarUrl}/> */}
-            <ImageReact style={styles.avatarImg} src={avatarUrl}/>
+            <Image style={styles.avatarImg} 
+            source={user?.avatar}/>
+            {/* <ImageReact style={styles.avatarImg} src={user?.avatar}/> */}
         </View>
         <View>
-            <H4>{nome}</H4>
-            <Text style={styles.email}>{email}</Text>
+            <H4>{user?.name}</H4>
+            <Text style={styles.email}>{user?.email}</Text>
         </View>
     </View>
   )
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
         width: 300,
         height: 100,
         backgroundColor: '#FFF',
-        borderRadius: 25
+        borderRadius: 25                
     },
     avatar: {
         paddingHorizontal: 10

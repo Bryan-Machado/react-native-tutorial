@@ -1,9 +1,9 @@
 import React from 'react'
 import {Text, StyleSheet} from 'react-native'
 
-const H1 = ({children = '',style}) => {
+const H1Exemplo = ({title = 'valor default', children = 'children default'}) => {
   return (
-    <Text style={[styles.h1, style]}>{children}</Text>
+    <Text style={styles.h1}>{title} outro texto: {children}</Text>
   )
 }
 
@@ -14,4 +14,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default H1
+export default H1Exemplo

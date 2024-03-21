@@ -4,9 +4,12 @@ import Header from './Header';
 import Footer from './Footer';
 import Body from './Body';
 
+//  ao invés de  <View style={{height: '100%'}}>
+//  podemos usar <ScrollView contentContainerStyle={{height: '100%'}}>
+
 export default function ListUserScreen() {
   return (
-    <ScrollView>
+    <View style={{height: '100%'}}>
       <ImageBackground resizeMode='cover' source={require('../assets/img/dragon2.jpg')} style={styles.bg}>
         <Header />
         <Body />
@@ -14,7 +17,7 @@ export default function ListUserScreen() {
       </ImageBackground>
 
       <StatusBar style="auto" />
-    </ScrollView>
+    </View>
   );
 }
 

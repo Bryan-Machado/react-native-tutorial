@@ -29,58 +29,43 @@ const Body = () => {
   },[])
 
   return (
-    <View style={styles.content}>       
+    <View style={{maxHeight: '100%'}}>       
 
         <View style={styles.titleAdd}>
           <H1 style={styles.usuariosH1}>Users</H1>
           <Button title="Add User" onPress={() => navigation.navigate('Cadastrar', {users, setUsers})} />
         </View>
 
-        <H1>Usuários</H1>
-        <ScrollView>
+        <H1 style={styles.usuariosH1}>Usuários</H1>
+        <View style={styles.listUser}>
             {users.length ? 
               <FlatList
                 data={users}
                 renderItem={({item}) => <CardUser user={item} />}
                 keyExtractor={item => item.id}
-                horizontal={true}
+                scrollEnabled={true}
               /> : 
               <Text style={{color: '#FFF'}}>Loading...</Text>}
-        </ScrollView>
+        </View>
 
     </View>
   )
 }
 
 const styles = StyleSheet.create({
-  // content: {
-  //   flex: 3,
-  //   // backgroundColor: '#fff',
-  //   alignItems: 'center',
-  //   justifyContent: 'center',
-  // },
-  // usuariosH1: {
-  //   marginBottom: 20,
-  //   color: "#FFF"
-  // },
-  // listUser:{
-  //   display: 'flex',
-  //   width: '100%',
-  //   alignItems: 'center',
-  //   marginBottom: 20
-  // },
-  // titleAdd:{
-  //   display: 'flex',
-  //   flexDirection: 'row',
-  //   justifyContent: 'space-between',
-  //   paddingHorizontal: 20,
-  // }
-
   usuariosH1: {
     marginBottom: 20,
     color: "#FFF",
+    textAlign: 'center'
   },
   listUser:{
+    display: 'flex',
+    width: '100%',
+    alignItems: 'center',
+    marginBottom: 20,
+    maxHeight: 300
+  },
+  contentContainer:{
     display: 'flex',
     width: '100%',
     alignItems: 'center',

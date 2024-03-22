@@ -40,22 +40,22 @@ const Editar = () => {
 
     const removeUser = async () => {
         try {
-            const result = await fetch('https://backend-api-express-1sem2024-rbd1.onrender.com/user' + user.id, {
+            const result = await fetch('https://backend-api-express-1sem2024-rbd1.onrender.com/user/' + user.id, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ name: txtName, email: txtEmail, avatar: txtAvatar })
+                }
             })
             const data = await result.json()
+            console.log(data)
             if (data?.success) {
                 navigation.goBack()
             } else {
                 alert(data.error)
             }
-
         } catch (error) {
             console.log('Error removeUser ' + error.message)
+            alert(error.message)
         }
     }
 
@@ -97,20 +97,20 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
-      },
-      form: {
+    },
+    form: {
         display: 'flex',
         padding: 40
-      },
-    
-      input: {
+    },
+
+    input: {
         height: 40,
         width: 300,
         backgroundColor: '#FFF',
         margin: 12,
         borderWidth: 1,
         padding: 10,
-      }
+    }
 })
 
 export default Editar

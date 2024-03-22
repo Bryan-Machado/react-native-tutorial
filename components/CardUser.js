@@ -1,22 +1,27 @@
-import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, Pressable } from 'react-native'
 import H4 from './ui/H4.js'
 import { Image } from 'expo-image'
-import {Image as ImageReact} from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+
 
 const CardUser = ({user}) => {
+
+    const navigation = useNavigation()
+
   return (
-    <View style={styles.card}>
-        <View style={styles.avatar}>
-            <Image style={styles.avatarImg} 
-            source={user?.avatar}/>
-            {/* <ImageReact style={styles.avatarImg} src={user?.avatar}/> */}
+    <Pressable onPress={() => {navigation.navigate('Editar', {user})}}>
+        <View style={styles.card}>
+            <View style={styles.avatar}>
+                <Image style={styles.avatarImg} 
+                source={user?.avatar}/>
+                {/* <ImageReact style={styles.avatarImg} src={user?.avatar}/> */}
+            </View>
+            <View>
+                <H4>{user?.name}</H4>
+                <Text style={styles.email}>{user?.email}</Text>
+            </View>
         </View>
-        <View>
-            <H4>{user?.name}</H4>
-            <Text style={styles.email}>{user?.email}</Text>
-        </View>
-    </View>
+    </Pressable>
   )
 }
 

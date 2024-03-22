@@ -1,9 +1,11 @@
-import { StyleSheet, View, Text, FlatList, ScrollView } from "react-native"
+import { StyleSheet, View, Text, FlatList } from "react-native"
+import { useEffect, useState } from 'react'
 import H1 from "./ui/H1.js"
 import CardUser from "./CardUser.js"
-import { useEffect, useState } from 'react'
-import Button from "./ui/Button.js"
+import Button from "./ui/Button"
 import { useNavigation } from "@react-navigation/native"
+import Header from "./Header.js"
+import Footer from "./Footer.js"
 
 // meu banco https://backend-api-express-study.onrender.com/user
 // banco do prof https://backend-api-express-1sem2024-rbd1.onrender.com/user
@@ -44,6 +46,8 @@ const Body = () => {
                 renderItem={({item}) => <CardUser user={item} />}
                 keyExtractor={item => item.id}
                 scrollEnabled={true}
+                // ListHeaderComponent={<Header usuarioLogado={user} />}
+                // ListFooterComponent={Footer}
               /> : 
               <Text style={{color: '#FFF'}}>Loading...</Text>}
         </View>

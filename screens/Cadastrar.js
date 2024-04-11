@@ -2,15 +2,16 @@ import { View, Text, StyleSheet, ScrollView, TextInput } from "react-native"
 import { useState } from "react"
 import { useNavigation, useRoute } from "@react-navigation/native"
 import Button from "../components/ui/Button"
+import useUserStore from "../stores/userStore"
 
 const Cadastrar = () => {
 
   const [txtName, setTxtName] = useState('')
   const [txtEmail, setTxtEmail] = useState('')
   const [txtAvatar, setTxtAvatar] = useState('')
-  const navigation = useNavigation()
-  const route = useRoute()
-  const { users, setUsers } = route.params
+  
+
+  const addUser = useUserStore(state => state.setUsers)
 
   const postUser = async () => {
     try {
@@ -23,7 +24,7 @@ const Cadastrar = () => {
       })
       const data = await result.json()
       if (data?.success) {
-        setUsers([data.user, ...users])
+        addUser(data.user)
         navigation.goBack()
       } else {
         alert(data.error)

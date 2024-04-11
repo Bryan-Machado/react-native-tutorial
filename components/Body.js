@@ -1,18 +1,20 @@
 import { StyleSheet, View, Text, FlatList } from "react-native"
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import H1 from "./ui/H1.js"
 import CardUser from "./CardUser.js"
 import Button from "./ui/Button"
 import { useNavigation } from "@react-navigation/native"
-import Header from "./Header.js"
-import Footer from "./Footer.js"
+// import Header from "./Header.js"
+// import Footer from "./Footer.js"
+import useUserStore from "../stores/userStore.js"
 
 // meu banco https://backend-api-express-study.onrender.com/user
 // banco do prof https://backend-api-express-1sem2024-rbd1.onrender.com/user
 
 const Body = () => {
 
-  const [users, setUsers] = useState([])
+  const users = useUserStore(state => state.users)
+  const setUsers = useUserStore(state => state.setUsers)
   const navigation = useNavigation()
 
   const getUsers = async () => {

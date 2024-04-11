@@ -3,6 +3,7 @@ import Button from "../components/ui/Button.js"
 
 import { useRoute, useNavigation } from "@react-navigation/native"
 import { useState } from "react"
+import useUserStore from "../stores/userStore.js"
 
 
 const Editar = () => {
@@ -16,6 +17,9 @@ const Editar = () => {
     const [txtName, setTxtName] = useState(user.name)
     const [txtEmail, setTxtEmail] = useState(user.email)
     const [txtAvatar, setTxtAvatar] = useState(user.avatar)
+
+    const updateUser = useUserStore()
+    const removeUserStore = useUserStore(state => state.removeUser)
 
     const editUser = async () => {
         try {
@@ -49,6 +53,7 @@ const Editar = () => {
             const data = await result.json()
             console.log(data)
             if (data?.success) {
+                removeUserStore(user.id)
                 navigation.goBack()
             } else {
                 alert(data.error)

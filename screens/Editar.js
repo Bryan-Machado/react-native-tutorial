@@ -23,7 +23,9 @@ const Editar = () => {
 
     const editUser = async () => {
         try {
-            const result = await fetch('https://backend-api-express-1sem2024-rbd1.onrender.com/user', {
+            // link do professor
+            // https://backend-api-express-1sem2024-rbd1.onrender.com/user
+            const result = await fetch('https://backend-api-express-study.onrender.com/user', {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json"
@@ -44,7 +46,9 @@ const Editar = () => {
 
     const removeUser = async () => {
         try {
-            const result = await fetch('https://backend-api-express-1sem2024-rbd1.onrender.com/user/' + user.id, {
+            // link do professor
+            // https://backend-api-express-1sem2024-rbd1.onrender.com/user
+            const result = await fetch('https://backend-api-express-study.onrender.com/user/' + user.id, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"

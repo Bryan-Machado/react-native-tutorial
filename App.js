@@ -30,16 +30,13 @@ export default function App() {
   return (
 
     <NavigationContainer>
-      {/* <StatusBar style="auto" /> */}
-
-      <UserNavigator />
 
       <Tab.Navigator screenOptions={{
           headerStyle: { backgroundColor: '#333' },
           headerTitleStyle: { color: '#fff' }
         }}>
   
-          <Tab.Screen name='Users' component={ListUserScreen} options={{
+          <Tab.Screen name='Users' component={UserNavigator} options={{
             tabBarIcon: () => (
               <Feather name='home' size={25} color='black'/>
             )
@@ -49,8 +46,6 @@ export default function App() {
               <Feather name='shopping-cart' size={25} color='black'/>
             )
           }} />
-
-        <Tab.Screen name="Teste" component={Products} />
 
       </Tab.Navigator>
 

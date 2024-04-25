@@ -19,7 +19,7 @@ const Body = () => {
 
   const getUsers = async () => {
     try{
-      const result = await fetch('https://backend-api-express-1sem2024-rbd1.onrender.com/user?34')
+      const result = await fetch('https://backend-api-express-study.onrender.com/user')
       const data = await result.json()
       console.log(data.success)
       setUsers(data.users)

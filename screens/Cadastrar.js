@@ -9,13 +9,16 @@ const Cadastrar = () => {
   const [txtName, setTxtName] = useState('')
   const [txtEmail, setTxtEmail] = useState('')
   const [txtAvatar, setTxtAvatar] = useState('')
+  const [txtPass, setTxtPass] = useState('')
   
 
   const addUser = useUserStore(state => state.setUsers)
 
   const postUser = async () => {
     try {
-      const result = await fetch('https://backend-api-express-1sem2024-rbd1.onrender.com/user', {
+      // link do professor
+      // https://backend-api-express-1sem2024-rbd1.onrender.com/user
+      const result = await fetch('https://backend-api-express-study.onrender.com/user/', {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -53,6 +56,12 @@ const Cadastrar = () => {
       <TextInput
         style={styles.input}
         placeholder="Avatar..."
+        onChangeText={setTxtAvatar}
+        value={txtAvatar}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Senha..."
         onChangeText={setTxtAvatar}
         value={txtAvatar}
       />

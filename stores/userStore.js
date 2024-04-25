@@ -5,7 +5,10 @@ const useUserStore = create((set) => ({
 
   setUsers: (newUsers) => set((state) => ({ users: newUsers })),
   addUser: (newUser) => set((state) => ({ users: [...state.users, newUser]})),
-  updateUser: (editedUser) => set((state) => ({})),
+  updateUser: (editedUser) => set((state) => {
+    const userFiltrado = state.user.filter(user => user.id === id)[0]
+    return {users: userFiltrado}
+  }),
   removeUser: (id) => set((state) => {
     const usersFilter = state.users.filter(user => user.id !== id)
     

@@ -26,28 +26,38 @@ const UserNavigator = () => {
   )
 }
 
+const MainNavigator = () => {
+  return (
+    <Tab.Navigator screenOptions={{
+      headerStyle: { backgroundColor: '#333' },
+      headerTitleStyle: { color: '#fff' }
+    }}>
+
+      <Tab.Screen name='Users' component={UserNavigator} options={{
+        tabBarIcon: () => (
+          <Feather name='home' size={25} color='black'/>
+        )
+      }}/>
+      <Tab.Screen name="Products" component={Products} options={{
+        tabBarIcon: () => (
+          <Feather name='shopping-cart' size={25} color='black'/>
+        )
+      }} />
+
+  </Tab.Navigator>
+  )
+}
+
 export default function App() {
   return (
 
     <NavigationContainer>
 
-      <Tab.Navigator screenOptions={{
-          headerStyle: { backgroundColor: '#333' },
-          headerTitleStyle: { color: '#fff' }
-        }}>
-  
-          <Tab.Screen name='Users' component={UserNavigator} options={{
-            tabBarIcon: () => (
-              <Feather name='home' size={25} color='black'/>
-            )
-          }}/>
-          <Tab.Screen name="Products" component={Products} options={{
-            tabBarIcon: () => (
-              <Feather name='shopping-cart' size={25} color='black'/>
-            )
-          }} />
-
-      </Tab.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen name='Splash' component={Splash} />
+        <Stack.Screen name="Cadastrar" component={Cadastrar} />
+        <Stack.Screen name="Editar" component={Editar} />
+      </Stack.Navigator>
 
       {/* <Drawer.Navigator>
         <Drawer.Screen name='ListUser' component={ListUserScreen}/>
